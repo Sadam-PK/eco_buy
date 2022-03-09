@@ -1,11 +1,10 @@
-import 'package:eco_buy/screens/signup.dart';
 import 'package:eco_buy/utils/styles.dart';
 import 'package:eco_buy/widgets/ecoButton.dart';
 import 'package:eco_buy/widgets/ecoTextField.dart';
 import 'package:flutter/material.dart';
 
-class LoginScreen extends StatelessWidget {
-  const LoginScreen({Key? key}) : super(key: key);
+class SignUpScreen extends StatelessWidget {
+  const SignUpScreen({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -19,7 +18,7 @@ class LoginScreen extends StatelessWidget {
               Column(
                 children: [
                   Text(
-                    "Welcome\nPlease Login",
+                    "Welcome\nPlease Register",
                     style: EcoStyle.boldStyle,
                     textAlign: TextAlign.center,
                   ),
@@ -36,7 +35,7 @@ class LoginScreen extends StatelessWidget {
                           hintText: "Enter Password",
                         ),
                         EcoButton(
-                          title: "LOGIN",
+                          title: "SIGNUP",
                           isLoginButton: true,
                         ),
                       ],
@@ -45,15 +44,10 @@ class LoginScreen extends StatelessWidget {
                 ],
               ),
               EcoButton(
-                title: "CREATE ACCOUNT",
+                title: "LOGIN",
                 isLoginButton: false,
-                onPress: () {
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                      builder: (_) => SignUpScreen(),
-                    ),
-                  );
+                onPress: (){
+                  Navigator.pop(context);
                 },
               ),
             ],
