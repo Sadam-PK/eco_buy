@@ -1,4 +1,5 @@
 import 'package:eco_buy/utils/styles.dart';
+import 'package:eco_buy/widgets/ecoButton.dart';
 import 'package:eco_buy/widgets/ecoTextField.dart';
 import 'package:flutter/material.dart';
 
@@ -14,7 +15,7 @@ class LoginScreen extends StatelessWidget {
           child: Column(
             children: [
               Padding(
-                padding: const EdgeInsets.all(8.0),
+                padding: const EdgeInsets.all(16.0),
                 child: Text(
                   "Welcome, Please login.",
                   style: EcoStyle.boldStyle,
@@ -29,6 +30,14 @@ class LoginScreen extends StatelessWidget {
                     ),
                     EcoTextField(
                       hintText: "Enter Password",
+                    ),
+                    EcoButton(
+                      title: "LOGIN",
+                      isLoginButton: true,
+                    ),
+                    EcoButton(
+                      title: "CREATE ACCOUNT",
+                      isLoginButton: false,
                     ),
                   ],
                 ),

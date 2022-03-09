@@ -8,7 +8,10 @@ class EcoTextField extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      margin: const EdgeInsets.all(20),
+      margin: const EdgeInsets.symmetric(
+        horizontal: 17,
+        vertical: 7,
+      ),
       decoration: BoxDecoration(
           color: Colors.grey.withOpacity(0.5),
           borderRadius: BorderRadius.circular(10)),
