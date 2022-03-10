@@ -11,52 +11,54 @@ class LoginScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       body: SafeArea(
-        child: Container(
-          width: double.infinity,
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: [
-              Column(
-                children: [
-                  Text(
-                    "Welcome\nPlease Login",
-                    style: EcoStyle.boldStyle,
-                    textAlign: TextAlign.center,
-                  ),
-                  SizedBox(
-                    height: 200.0,
-                  ),
-                  Form(
-                    child: Column(
-                      children: [
-                        EcoTextField(
-                          hintText: "Enter Email",
-                        ),
-                        EcoTextField(
-                          hintText: "Enter Password",
-                        ),
-                        EcoButton(
-                          title: "LOGIN",
-                          isLoginButton: true,
-                        ),
-                      ],
+        child: SingleChildScrollView(
+          child: Container(
+            width: double.infinity,
+            child: Column(
+              //mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                Column(
+                  children: [
+                    const Text(
+                      "Welcome\nPlease Login",
+                      style: EcoStyle.boldStyle,
+                      textAlign: TextAlign.center,
                     ),
-                  ),
-                ],
-              ),
-              EcoButton(
-                title: "CREATE ACCOUNT",
-                isLoginButton: false,
-                onPress: () {
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                      builder: (_) => SignUpScreen(),
+                    Form(
+                      child: Column(
+                        children: [
+                          EcoTextField(
+                            hintText: "Enter Email",
+                          ),
+                          EcoTextField(
+                            hintText: "Enter Password",
+                          ),
+                          EcoButton(
+                            title: "LOGIN",
+                            isLoginButton: true,
+                          ),
+                        ],
+                      ),
                     ),
-                  );
-                },
-              ),
-            ],
+                  ],
+                ),
+                SizedBox(
+                  height: 100,
+                ),
+                EcoButton(
+                  title: "CREATE ACCOUNT",
+                  isLoginButton: false,
+                  onPress: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (_) => SignUpScreen(),
+                      ),
+                    );
+                  },
+                ),
+              ],
+            ),
           ),
         ),
       ),
