@@ -4,7 +4,9 @@ class EcoButton extends StatelessWidget {
   String? title;
   bool? isLoginButton;
   VoidCallback? onPress;
-  EcoButton({this.title, this.isLoginButton = false, this.onPress});
+  bool? isLoading;
+
+  EcoButton({this.title, this.isLoginButton = false, this.onPress, this.isLoading = false});
 
   @override
   Widget build(BuildContext context) {
@@ -24,13 +26,32 @@ class EcoButton extends StatelessWidget {
             color: isLoginButton == false ? Colors.black : Colors.black,
           ),
         ),
-        child: Center(
-          child: Text(
-            title ?? "Button",
-            style: TextStyle(
-                color: isLoginButton == false ? Colors.black : Colors.white,
-                fontSize: 16),
-          ),
+        child: Stack(
+          children: [
+            Stack(
+              children: [
+                Visibility(
+                  visible: isLoading!?false:true,
+                  child: Center(
+                    child: Text(
+                      title ?? "Button",
+                      style: TextStyle(
+                          color: isLoginButton == false
+                              ? Colors.black
+                              : Colors.white,
+                          fontSize: 16),
+                    ),
+                  ),
+                ),
+                Visibility(
+                  visible: isLoading!,
+                  child: Center(
+                    child: CircularProgressIndicator(),
+                  ),
+                ),
+              ],
+            ),
+          ],
         ),
       ),
     );

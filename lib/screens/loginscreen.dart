@@ -4,9 +4,19 @@ import 'package:eco_buy/widgets/ecoButton.dart';
 import 'package:eco_buy/widgets/ecoTextField.dart';
 import 'package:flutter/material.dart';
 
-class LoginScreen extends StatelessWidget {
+class LoginScreen extends StatefulWidget {
   const LoginScreen({Key? key}) : super(key: key);
 
+  @override
+  State<LoginScreen> createState() => _LoginScreenState();
+}
+
+class _LoginScreenState extends State<LoginScreen> {
+  @override
+  void dispose() {
+    // TODO: implement dispose
+    super.dispose();
+  }
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -23,6 +33,9 @@ class LoginScreen extends StatelessWidget {
                       "Welcome\nPlease Login",
                       style: EcoStyle.boldStyle,
                       textAlign: TextAlign.center,
+                    ),
+                    SizedBox(
+                      height: 100,
                     ),
                     Form(
                       child: Column(
@@ -43,7 +56,7 @@ class LoginScreen extends StatelessWidget {
                   ],
                 ),
                 SizedBox(
-                  height: 100,
+                  height: 150,
                 ),
                 EcoButton(
                   title: "CREATE ACCOUNT",

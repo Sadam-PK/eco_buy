@@ -5,36 +5,27 @@ class EcoTextField extends StatefulWidget {
   TextEditingController? controller;
   String? Function(String?)? validate;
   bool isPassword;
-  IconData? icon;
+  Widget? icon;
   bool check;
+  final TextInputAction? inputAction;
+  final FocusNode? focusNode;
 
-  EcoTextField(
-      {this.hintText,
-      this.controller,
-      this.validate,
-      this.isPassword = false,
-      this.icon,
-      this.check = false});
+  EcoTextField({
+    this.hintText,
+    this.controller,
+    this.validate,
+    this.isPassword = false,
+    this.icon,
+    this.check = false,
+    this.inputAction,
+    this.focusNode,
+  });
 
   @override
   State<EcoTextField> createState() => _EcoTextFieldState();
 }
 
 class _EcoTextFieldState extends State<EcoTextField> {
-  List<bool> isp = [false, true, true];
-
-  Icon iconChecker() {
-    if (widget.isPassword == true) {
-      return Icon(Icons.visibility);
-    } else if (widget.isPassword == false && widget.hintText == "Enter Email") {
-      return Icon(Icons.email);
-    } else if (widget.isPassword == false) {
-      return Icon(Icons.visibility_off);
-    } else {
-      return Icon(Icons.circle);
-    }
-  }
-
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -46,6 +37,8 @@ class _EcoTextFieldState extends State<EcoTextField> {
           color: Colors.grey.withOpacity(0.5),
           borderRadius: BorderRadius.circular(10)),
       child: TextFormField(
+        focusNode: widget.focusNode,
+        textInputAction: widget.inputAction,
         controller: widget.controller,
         validator: widget.validate,
         obscureText: widget.isPassword == false ? false : widget.isPassword,
@@ -53,20 +46,7 @@ class _EcoTextFieldState extends State<EcoTextField> {
           border: InputBorder.none,
           hintText: widget.hintText ?? 'hintText...',
           contentPadding: const EdgeInsets.all(10),
-          suffixIcon: IconButton(
-            onPressed: () {
-              if (widget.isPassword == false) {
-                setState(() {
-                  widget.isPassword = true;
-                });
-              } else {
-                setState(() {
-                  widget.isPassword = false;
-                });
-              }
-            },
-            icon: iconChecker(),
-          ),
+          suffixIcon: widget.icon,
         ),
       ),
     );
