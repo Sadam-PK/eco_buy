@@ -1,3 +1,4 @@
+import 'package:eco_buy/screens/landingScreen.dart';
 import 'package:eco_buy/screens/loginscreen.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
@@ -27,7 +28,7 @@ class MyApp extends StatelessWidget {
         backgroundColor: Colors.white,
         primarySwatch: Colors.blue,
       ),
-      home: LoginScreen(),
+      home: LandingScreen(),
     );
   }
 }
